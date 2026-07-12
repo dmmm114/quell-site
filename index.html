@@ -44,7 +44,7 @@
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
-  body{background:var(--ink);color:var(--mist);font-family:var(--sans);font-weight:400;
+  body{background:linear-gradient(180deg,#0C1122 0%,#090D18 34%,var(--ink) 100%);color:var(--mist);font-family:var(--sans);font-weight:400;
     line-height:1.55;letter-spacing:-0.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   ::selection{background:var(--teal);color:var(--ink)}
   a{color:inherit;text-decoration:none}
@@ -54,6 +54,23 @@
   .teal{color:var(--teal-hi)}
   .label{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--faint)}
   :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+
+  /* aurora de fundo — profundidade em vez de preto chapado */
+  .aurora{position:fixed;inset:-15%;z-index:-1;pointer-events:none;opacity:0.9}
+  .aurora i{position:absolute;border-radius:50%}
+  .aurora i:nth-child(1){width:56vw;height:56vw;left:-10vw;top:-8vw;
+    background:radial-gradient(circle,rgba(57,169,140,0.17),transparent 62%);
+    animation:aur1 26s ease-in-out infinite alternate}
+  .aurora i:nth-child(2){width:50vw;height:50vw;right:-8vw;top:18vh;
+    background:radial-gradient(circle,rgba(43,47,99,0.38),transparent 62%);
+    animation:aur2 34s ease-in-out infinite alternate}
+  .aurora i:nth-child(3){width:44vw;height:44vw;left:20vw;bottom:-14vh;
+    background:radial-gradient(circle,rgba(86,120,214,0.12),transparent 62%);
+    animation:aur3 40s ease-in-out infinite alternate}
+  @keyframes aur1{to{transform:translate(9vw,7vh) scale(1.18)}}
+  @keyframes aur2{to{transform:translate(-8vw,-6vh) scale(1.12)}}
+  @keyframes aur3{to{transform:translate(7vw,-9vh) scale(1.22)}}
+  @media(prefers-reduced-motion:reduce){.aurora i{animation:none}}
 
   /* progress hairline — scroll-driven CSS onde suportado */
   .progress{position:fixed;top:0;left:0;height:2px;width:100%;z-index:90;
@@ -135,7 +152,7 @@
   .phone{width:min(340px,86vw);aspect-ratio:9/19;border-radius:38px;position:relative;
     background:linear-gradient(160deg,#101a2c, #0a0f1c 55%, #0d1424);
     border:1px solid var(--line-2);box-shadow:0 40px 90px -30px rgba(0,0,0,0.75), inset 0 0 0 6px #05070d;
-    overflow:hidden;transform:rotateX(2deg) rotateY(-3deg)}
+    overflow:hidden;transform:rotateX(2deg) rotateY(-3deg);transition:transform .18s ease-out}
   .phone::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);
     width:84px;height:22px;border-radius:100px;background:#05070d;z-index:5}
   .screen{position:absolute;inset:6px;border-radius:32px;overflow:hidden;
@@ -172,6 +189,33 @@
   .bundle .bd{font-size:11px;color:var(--faint);font-family:var(--mono)}
   .bundle .cnt{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--faint);
     border:1px solid var(--line-2);padding:4px 10px;border-radius:100px}
+
+  /* TESTER — experimenta a triagem */
+  .tester{margin-top:72px;border:1px solid var(--line);border-radius:22px;padding:32px;
+    background:rgba(9,13,24,0.6);position:relative;overflow:hidden}
+  .tester::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(60% 100% at 85% 0%, rgba(57,169,140,0.08), transparent 60%)}
+  .tester .t-k{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal)}
+  .tester h3{font-size:clamp(21px,2.6vw,28px);letter-spacing:-0.025em;font-weight:500;margin:10px 0 6px}
+  .tester .t-s{font-size:14.5px;color:var(--dim);max-width:58ch}
+  .t-row{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  #t-in{flex:1;min-width:230px;height:52px;background:var(--glass);border:1px solid var(--line-2);
+    border-radius:14px;padding:0 18px;color:var(--mist);font:inherit;font-size:15px}
+  #t-in::placeholder{color:var(--faint)}
+  #t-in:focus{outline:2px solid var(--teal);outline-offset:0;border-color:transparent}
+  .t-out{margin-top:16px;min-height:70px}
+  .t-res{display:flex;align-items:center;gap:14px;padding:15px 18px;border-radius:14px;
+    border:1px solid;animation:tpop .35s cubic-bezier(.2,.7,.2,1)}
+  @keyframes tpop{from{opacity:0;transform:translateY(8px) scale(0.98)}}
+  .t-res .t-ico{font-size:22px}
+  .t-res b{display:block;font-size:15.5px;letter-spacing:-0.01em}
+  .t-res span{font-size:13.5px;color:var(--dim)}
+  .t-samples{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+  .t-chip{border:1px solid var(--line-2);border-radius:100px;padding:9px 15px;font-size:12.5px;
+    color:var(--dim);transition:all .2s;font-family:var(--mono)}
+  .t-chip:hover{border-color:var(--teal);color:var(--teal-hi)}
+  .t-note{margin-top:16px;font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+  @media(prefers-reduced-motion:reduce){.t-res{animation:none}}
 
   /* FEATURES */
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -242,6 +286,7 @@
 </style>
 </head>
 <body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header id="hdr">
@@ -329,6 +374,19 @@
           </button>
           <p class="demo-note" data-i18n="demo_note">// no servers involved. not now, not ever.</p>
         </div>
+      </div>
+
+      <div class="tester reveal" id="tester">
+        <span class="t-k" data-i18n="t_live">// live</span>
+        <h3 data-i18n="t_h">Try the triage yourself</h3>
+        <p class="t-s" data-i18n="t_s">Type any notification — the same kind of triage runs right here, in your browser. Nothing is sent anywhere.</p>
+        <div class="t-row">
+          <input id="t-in" type="text" maxlength="140" placeholder="e.g. FLASH SALE −70% off everything!" aria-label="Notification text">
+          <button class="btn btn-primary" id="t-go" data-i18n="t_go">Sort it</button>
+        </div>
+        <div class="t-out" id="t-out" aria-live="polite"></div>
+        <div class="t-samples" id="t-samples"></div>
+        <p class="t-note" data-i18n="t_note">Simplified for the web — the real Quell runs deeper rules, fully offline on your phone.</p>
       </div>
     </div>
   </section>
@@ -432,6 +490,8 @@
 </footer>
 
 <script>
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE=matchMedia('(pointer: fine)').matches;
 /* ---------- i18n ---------- */
 const I18N = {
   pt: {
@@ -471,6 +531,10 @@ const I18N = {
     q5:"O que é que o Quell lê, exatamente?", a5:"O conteúdo das notificações que chegam — é o que a triagem exige. É processado no dispositivo, guardado no máximo 30 dias no histórico local, e nunca transmitido. Os detalhes completos estão na política de privacidade.",
     fin_h1:"O teu telemóvel,", fin_h2:"finalmente em paz.", fin_p:"Junta-te à beta fechada e fica na primeira fila.",
     foot_priv:"Política de privacidade", foot_by:"pela eloweb", foot_legal:"O Quell é feito em Portugal pela",
+    t_live:"// ao vivo", t_h:"Experimenta a triagem",
+    t_s:"Escreve uma notificação qualquer — a mesma triagem corre aqui, no teu browser. Nada é enviado para lado nenhum.",
+    t_go:"Triar",
+    t_note:"Versão simplificada para a web — o verdadeiro Quell corre regras mais profundas, totalmente offline no teu telemóvel.",
   }
 };
 const EN = {}; // capturado do DOM na primeira aplicação
@@ -496,6 +560,10 @@ function applyLang(l){
   const lg=document.querySelector('.lang'); if(lg) lg.setAttribute('aria-label',A.lang);
   const ph=document.querySelector('.phone'); if(ph) ph.setAttribute('aria-label',A.phone);
   const rp=document.getElementById('replay'); if(rp) rp.setAttribute('aria-label',A.replay);
+  const ti=document.getElementById('t-in');
+  if(ti) ti.placeholder=(l==='pt')?'ex.: SALDOS −70% em tudo, só hoje!':'e.g. FLASH SALE −70% off everything!';
+  if(typeof renderSamples==='function') renderSamples();
+  const to=document.getElementById('t-out'); if(to) to.innerHTML='';
 }
 document.getElementById('lang-en').addEventListener('click',()=>{applyLang('en'); restartDemo();});
 document.getElementById('lang-pt').addEventListener('click',()=>{applyLang('pt'); restartDemo();});
@@ -646,10 +714,15 @@ function runDemo(){
 }
 function restartDemo(){ if(started) runDemo(); }
 document.getElementById('replay').addEventListener('click',runDemo);
+const phoneEl=document.querySelector('.phone');
+function inView(el){const r=el.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0;}
 if('IntersectionObserver' in window){
   new IntersectionObserver((es,obs)=>{es.forEach(e=>{
     if(e.isIntersecting && !started){runDemo();obs.disconnect();}
-  })},{threshold:0.35}).observe(document.querySelector('.phone'));
+  })},{threshold:0.35}).observe(phoneEl);
+  // fallback: se já está visível no load (ou o IO não disparar), arranca na mesma
+  if(inView(phoneEl)&&!started)runDemo();
+  setTimeout(()=>{if(!started&&inView(phoneEl))runDemo();},2200);
 }else{
   runDemo();
 }
@@ -662,6 +735,54 @@ document.querySelectorAll('.feat').forEach(card=>{
     card.style.setProperty('--my',(e.clientY-r.top)+'px');
   },{passive:true});
 });
+
+/* ---------- tilt 3D do telefone ---------- */
+if(FINE && !REDUCED){
+  const pw=document.querySelector('.phone-wrap'), ph=document.querySelector('.phone');
+  if(pw&&ph){
+    pw.addEventListener('pointermove',e=>{
+      const r=pw.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+      ph.style.transform='rotateX('+(2-y*9)+'deg) rotateY('+(-3+x*11)+'deg)';
+    },{passive:true});
+    pw.addEventListener('pointerleave',()=>{ph.style.transform='';});
+  }
+}
+
+/* ---------- experimenta a triagem (corre 100% neste browser) ---------- */
+const T_RX_URGENT=/(\bcode\b|c[oó]digo|otp|verifica|verification|2fa|\bpin\b|em entrega|out for delivery|delivered|entregue|estafeta|encomenda|parcel|banco|\bbank\b|transfer[eê]ncia|pagamento|payment|d[eé]bito|charged|fraud|suspeita|suspicious|emerg[eê]ncia|emergency|socorro|urgentemente)/i;
+const T_RX_PROMO=/(%|desconto|\bsale\b|saldos|\bdeal\b|cup[aã]o|coupon|oferta|promo|black friday|s[oó] hoje|today only|limited|n[aã]o percas|don'?t miss|gr[aá]tis|\bfree\b|unsubscribe|voucher|flash)/i;
+const T_RES={
+  en:{urgent:['⚡','Flagged urgent','It pierces the silence and stands out.','rgba(232,179,75'],
+      promo:['🔇','Muted','Swept into the silent promotions bundle — recoverable anytime.','rgba(214,105,132'],
+      keep:['✓','Passes through','Looks personal or useful — it stays in your tray.','rgba(83,214,178']},
+  pt:{urgent:['⚡','Sinalizada como urgente','Fura o silêncio e ganha destaque.','rgba(232,179,75'],
+      promo:['🔇','Silenciada','Varrida para o grupo silencioso de promoções — recuperável a qualquer momento.','rgba(214,105,132'],
+      keep:['✓','Passa','Parece pessoal ou útil — fica na tua barra.','rgba(83,214,178']}};
+const T_SAMPLES={
+  en:['FLASH SALE −70% today only!','Your parcel is out for delivery','Mum: call me when you can'],
+  pt:['SALDOS −70% só hoje!','A tua encomenda está em entrega','Mãe: liga-me quando puderes']};
+function renderSamples(){
+  const el=document.getElementById('t-samples'); if(!el)return;
+  el.innerHTML='';
+  T_SAMPLES[lang==='pt'?'pt':'en'].forEach(sm=>{
+    const b=document.createElement('button');
+    b.className='t-chip';b.type='button';b.textContent=sm;
+    b.addEventListener('click',()=>{const i=document.getElementById('t-in');i.value=sm;runTriage();});
+    el.appendChild(b);
+  });
+}
+function runTriage(){
+  const i=document.getElementById('t-in'), out=document.getElementById('t-out');
+  if(!i||!out)return;
+  const txt=(i.value||'').trim(); if(!txt){i.focus();return;}
+  const v=T_RX_URGENT.test(txt)?'urgent':(T_RX_PROMO.test(txt)?'promo':'keep');
+  const R=T_RES[lang==='pt'?'pt':'en'][v];
+  out.innerHTML='<div class="t-res" style="border-color:'+R[3]+',0.45);background:'+R[3]+',0.08)">'+
+    '<span class="t-ico">'+R[0]+'</span><div><b>'+R[1]+'</b><span>'+R[2]+'</span></div></div>';
+}
+const tgo=document.getElementById('t-go'); if(tgo)tgo.addEventListener('click',runTriage);
+const tin=document.getElementById('t-in'); if(tin)tin.addEventListener('keydown',e=>{if(e.key==='Enter')runTriage();});
 
 applyLang(lang);
 </script>
