@@ -283,6 +283,48 @@
     .btn-primary:hover,.feat:hover{transform:none;box-shadow:none}
     .replay:hover svg{transform:none}
   }
+  /* ---- MODAL BETA ---- */
+  .modal-back{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;
+    padding:22px;background:rgba(4,6,12,0.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .modal-back.on{display:flex;animation:mfade .25s ease}
+  @keyframes mfade{from{opacity:0}}
+  .modal{width:100%;max-width:440px;background:linear-gradient(180deg,#0E1424,#0A0F1C);
+    border:1px solid var(--line-2);border-radius:22px;padding:30px;position:relative;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,0.8);animation:mrise .35s cubic-bezier(.2,.7,.2,1)}
+  @keyframes mrise{from{opacity:0;transform:translateY(16px) scale(0.98)}}
+  .modal .x{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--dim);transition:all .2s}
+  .modal .x:hover{color:var(--mist);border-color:var(--line-2)}
+  .modal .x svg{width:16px;height:16px}
+  .modal .m-k{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal)}
+  .modal h3{font-size:24px;letter-spacing:-0.025em;font-weight:500;margin:10px 0 6px}
+  .modal .m-s{font-size:14px;color:var(--dim);margin-bottom:22px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+  .field input,.field textarea{width:100%;background:var(--glass);border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 15px;color:var(--mist);font:inherit;font-size:15px;transition:border-color .2s}
+  .field textarea{resize:vertical;min-height:74px}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--teal)}
+  .hp{position:absolute;left:-9999px;opacity:0;width:0;height:0;overflow:hidden}
+  .modal .submit{width:100%;height:52px;background:var(--teal);color:#04120D;border-radius:100px;
+    font-size:15px;font-weight:500;margin-top:8px;transition:background .2s,opacity .2s;
+    display:flex;align-items:center;justify-content:center;gap:9px}
+  .modal .submit:hover{background:var(--teal-hi)}
+  .modal .submit:disabled{opacity:0.6;cursor:default}
+  .modal .submit .spin{width:16px;height:16px;border:2px solid rgba(4,18,13,0.35);border-top-color:#04120D;
+    border-radius:50%;animation:spin .7s linear infinite;display:none}
+  .modal.sending .submit .spin{display:block}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .m-msg{font-size:13.5px;margin-top:12px;min-height:18px}
+  .m-msg.err{color:#E88}
+  .m-note{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:16px;text-align:center}
+  .m-done{text-align:center;padding:14px 0}
+  .m-done .ok{width:56px;height:56px;border-radius:50%;background:rgba(83,214,178,0.14);
+    border:1px solid rgba(83,214,178,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .m-done .ok svg{width:26px;height:26px;color:var(--teal-hi)}
+  .m-done h3{margin-bottom:6px}
+  @media(prefers-reduced-motion:reduce){.modal-back.on,.modal{animation:none}.modal .submit .spin{animation:none}}
 </style>
 </head>
 <body>
@@ -306,7 +348,7 @@
           <button id="lang-en" aria-pressed="true">EN</button>
           <button id="lang-pt" aria-pressed="false">PT</button>
         </div>
-        <a href="#beta" class="nav-cta" data-i18n="nav_cta">Get the beta</a>
+        <button class="nav-cta" data-i18n="nav_cta" data-beta>Get the beta</button>
       </div>
     </nav>
   </div>
@@ -322,7 +364,7 @@
         <span class="serif teal" data-i18n="h1b">Find your calm.</span></h1>
       <p class="sub reveal" data-i18n="sub">Quell sorts your notifications by itself — promotions are muted into one quiet group, messages come straight through, and what's urgent stands out. All of it on your phone. None of it anywhere else.</p>
       <div class="cta-row reveal">
-        <a class="btn btn-primary" href="mailto:support@quellcalm.com?subject=Quell%20beta%20invite" data-i18n="cta1">Request a beta invite</a>
+        <button class="btn btn-primary" data-i18n="cta1" data-beta>Request a beta invite</button>
         <a class="btn btn-ghost" href="#demo" data-i18n="cta2">Watch it work</a>
       </div>
       <div class="hero-meta reveal">
@@ -459,7 +501,7 @@
       <h2><span data-i18n="fin_h1">Your phone,</span> <span class="serif teal" data-i18n="fin_h2">finally quiet.</span></h2>
       <p data-i18n="fin_p">Join the closed beta and be first in line.</p>
       <div class="cta-row" style="margin-top:36px">
-        <a class="btn btn-primary" href="mailto:support@quellcalm.com?subject=Quell%20beta%20invite" data-i18n="cta1b">Request a beta invite</a>
+        <button class="btn btn-primary" data-i18n="cta1b" data-beta>Request a beta invite</button>
       </div>
     </div>
   </section>
@@ -535,6 +577,11 @@ const I18N = {
     t_s:"Escreve uma notificação qualquer — a mesma triagem corre aqui, no teu browser. Nada é enviado para lado nenhum.",
     t_go:"Triar",
     t_note:"Versão simplificada para a web — o verdadeiro Quell corre regras mais profundas, totalmente offline no teu telemóvel.",
+    bm_k:"// beta fechada", bm_title:"Pedir convite para a beta",
+    bm_sub:"Deixa o teu email e enviamos-te o link de adesão assim que a beta abrir.",
+    bm_name:"Nome", bm_email:"Email *", bm_msg:"Mensagem (opcional)", bm_send:"Pedir convite",
+    bm_note:"O teu email só serve para te enviarmos o convite. Nada de spam.",
+    bm_ok_h:"Pedido recebido!", bm_ok_s:"Obrigado. Recebes o link da beta no email assim que abrir.",
   }
 };
 const EN = {}; // capturado do DOM na primeira aplicação
@@ -564,6 +611,8 @@ function applyLang(l){
   if(ti) ti.placeholder=(l==='pt')?'ex.: SALDOS −70% em tudo, só hoje!':'e.g. FLASH SALE −70% off everything!';
   if(typeof renderSamples==='function') renderSamples();
   const to=document.getElementById('t-out'); if(to) to.innerHTML='';
+  const bmg=document.getElementById('bm-msg');
+  if(bmg) bmg.placeholder=(l==='pt')?'Que telemóvel Android usas? (ajuda-nos)':'Which Android phone do you use? (helps us)';
 }
 document.getElementById('lang-en').addEventListener('click',()=>{applyLang('en'); restartDemo();});
 document.getElementById('lang-pt').addEventListener('click',()=>{applyLang('pt'); restartDemo();});
@@ -784,7 +833,119 @@ function runTriage(){
 const tgo=document.getElementById('t-go'); if(tgo)tgo.addEventListener('click',runTriage);
 const tin=document.getElementById('t-in'); if(tin)tin.addEventListener('keydown',e=>{if(e.key==='Enter')runTriage();});
 
+/* ---------- modal de beta ---------- */
+(function(){
+  const back=document.getElementById('beta-modal'), card=document.getElementById('beta-modal-card'),
+        form=document.getElementById('beta-form'), out=document.getElementById('bm-msg-out'),
+        submit=document.getElementById('bm-submit'), modal=card;
+  const fwrap=document.getElementById('bm-form-wrap'), done=document.getElementById('bm-done');
+  let lastFocus=null;
+  function open(){
+    lastFocus=document.activeElement;
+    back.hidden=false; requestAnimationFrame(()=>back.classList.add('on'));
+    fwrap.hidden=false; done.hidden=true; out.textContent=''; out.className='m-msg';
+    setTimeout(()=>{const e=document.getElementById('bm-email'); if(e)e.focus();},60);
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    back.classList.remove('on');
+    setTimeout(()=>{back.hidden=true;document.body.style.overflow='';},220);
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  document.querySelectorAll('[data-beta]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();open();}));
+  document.getElementById('bm-close').addEventListener('click',close);
+  back.addEventListener('click',e=>{if(e.target===back)close();});
+  addEventListener('keydown',e=>{
+    if(back.hidden)return;
+    if(e.key==='Escape')close();
+    if(e.key==='Tab'){
+      const f=card.querySelectorAll('button,input,textarea,a[href]');
+      if(!f.length)return;
+      const first=f[0], last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
+
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const pt=lang==='pt';
+    const email=document.getElementById('bm-email').value.trim();
+    if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      out.className='m-msg err';
+      out.textContent=pt?'Escreve um email válido.':'Please enter a valid email.';
+      document.getElementById('bm-email').focus(); return;
+    }
+    if(form._honey.value){close();return;}
+    out.className='m-msg'; out.textContent='';
+    modal.classList.add('sending'); submit.disabled=true;
+    try{
+      const r=await fetch('https://formsubmit.co/ajax/support@quellcalm.com',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+          name:document.getElementById('bm-name').value.trim()||'—',
+          email:email,
+          message:document.getElementById('bm-msg').value.trim()||'—',
+          _subject:'Quell — pedido de convite para a beta',
+          _template:'table'
+        })
+      });
+      const data=await r.json().catch(()=>({}));
+      if(r.ok && (data.success===true || data.success==='true')){
+        fwrap.hidden=true; done.hidden=false;
+      }else{ throw new Error('fail'); }
+    }catch(err){
+      out.className='m-msg err';
+      out.innerHTML=pt
+        ? 'Não deu para enviar agora. Escreve-nos para <a href="mailto:support@quellcalm.com" style="color:var(--teal-hi)">support@quellcalm.com</a>.'
+        : 'Could not send right now. Email us at <a href="mailto:support@quellcalm.com" style="color:var(--teal-hi)">support@quellcalm.com</a>.';
+    }finally{
+      modal.classList.remove('sending'); submit.disabled=false;
+    }
+  });
+})();
+
 applyLang(lang);
 </script>
+<!-- MODAL: pedir convite beta -->
+<div class="modal-back" id="beta-modal" role="dialog" aria-modal="true" aria-labelledby="bm-title" hidden>
+  <div class="modal" id="beta-modal-card">
+    <button class="x" id="bm-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="bm-form-wrap">
+      <span class="m-k" data-i18n="bm_k">// closed beta</span>
+      <h3 id="bm-title" data-i18n="bm_title">Request a beta invite</h3>
+      <p class="m-s" data-i18n="bm_sub">Drop your email and we send you the opt-in link the moment the beta opens.</p>
+      <form id="beta-form" novalidate>
+        <div class="field">
+          <label for="bm-name" data-i18n="bm_name">Name</label>
+          <input id="bm-name" name="name" type="text" autocomplete="name" placeholder="Ana Silva">
+        </div>
+        <div class="field">
+          <label for="bm-email" data-i18n="bm_email">Email *</label>
+          <input id="bm-email" name="email" type="email" required autocomplete="email" placeholder="ana@email.com">
+        </div>
+        <div class="field">
+          <label for="bm-msg" data-i18n="bm_msg">Message (optional)</label>
+          <textarea id="bm-msg" name="message" placeholder=""></textarea>
+        </div>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="submit" type="submit" id="bm-submit">
+          <span class="spin" aria-hidden="true"></span>
+          <span data-i18n="bm_send">Request invite</span>
+        </button>
+        <div class="m-msg" id="bm-msg-out" role="status"></div>
+      </form>
+      <p class="m-note" data-i18n="bm_note">Your email is only used to send you the invite. No spam, ever.</p>
+    </div>
+    <div class="m-done" id="bm-done" hidden>
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 data-i18n="bm_ok_h">Request received!</h3>
+      <p class="m-s" data-i18n="bm_ok_s">Thank you. You get the beta link by email as soon as it opens.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
