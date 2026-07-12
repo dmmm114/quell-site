@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quell — Privacy Policy / Política de Privacidade</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1d21;
+    --muted: #5b6570;
+    --accent: #2f6f5e;
+    --border: #e4e8ec;
+    --card: #f7f9fa;
+    --maxw: 760px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 32px 22px 80px;
+  }
+  header.top {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 8px;
+  }
+  .brand {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .tagline {
+    color: var(--muted);
+    margin: 4px 0 0;
+    font-size: 15px;
+  }
+  .langnav {
+    margin: 18px 0 0;
+    font-size: 15px;
+  }
+  .langnav a {
+    display: inline-block;
+    margin-right: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .langnav a:hover { text-decoration: underline; }
+  h2 {
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin: 46px 0 6px;
+    padding-top: 10px;
+  }
+  h3 {
+    font-size: 17px;
+    margin: 28px 0 6px;
+  }
+  p { margin: 10px 0; }
+  ul { margin: 10px 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  a { color: var(--accent); }
+  .meta {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 6px 0 0;
+  }
+  .callout {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 20px 0;
+  }
+  .callout strong { color: var(--fg); }
+  code {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-size: 14px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 60px 0 0;
+  }
+  .backtop {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  footer.foot {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14171a;
+      --fg: #e8ebee;
+      --muted: #9aa4ad;
+      --accent: #6fc7ac;
+      --border: #2a2f34;
+      --card: #1c2024;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top" id="top">
+    <h1 class="brand">Quell</h1>
+    <p class="tagline">The app that tidies your notifications by itself. / A app que arruma as tuas notificações sozinha.</p>
+    <nav class="langnav">
+      <a href="#en">English</a>
+      <a href="#pt">Português</a>
+    </nav>
+  </header>
+
+  <!-- ================= ENGLISH ================= -->
+  <section id="en">
+    <h2>Privacy Policy</h2>
+    <p class="meta">Application: <strong>Quell</strong> (package <code>app.quell</code>) &middot; Android</p>
+    <p class="meta">Effective date: <strong>July 12, 2026</strong></p>
+
+    <div class="callout">
+      <p style="margin:0"><strong>The short version.</strong> Quell runs entirely on your device. It has no internet permission, keeps no account, and shows no ads. Nothing you see in your notifications is ever collected, transmitted, shared, or stored anywhere outside your phone. When you uninstall Quell, everything it kept is gone.</p>
+    </div>
+
+    <h3>1. Who is responsible</h3>
+    <p>Quell is developed and published by the Quell project ("Quell", "we", "us"). You can reach us at <strong>support@quellcalm.com</strong> for any question about this policy or about your privacy.</p>
+
+    <h3>2. Our privacy principle: 100% on-device</h3>
+    <p>Quell is built so that your notification content never leaves your device. All processing — reading a notification, deciding whether it is a promotion, a message, or something urgent, and acting on it — happens locally, in real time, on your phone.</p>
+    <p>To make this verifiable rather than a promise, <strong>Quell does not request the internet permission</strong> in its Android manifest. An app without that permission is technically unable to send data off the device. There are:</p>
+    <ul>
+      <li>no servers we operate that receive your data,</li>
+      <li>no analytics, tracking, or advertising SDKs,</li>
+      <li>no user accounts, sign-in, or profiles,</li>
+      <li>no third parties that receive, host, or process your information.</li>
+    </ul>
+
+    <h3>3. What data Quell accesses</h3>
+    <p>To do its job, Quell reads the notifications posted by other apps on your device through Android's <strong>Notification Listener</strong> (the <code>NotificationListenerService</code> API). This can include the text and metadata of a notification — for example the app it came from, the title, the message text, and the notification's category.</p>
+    <p>Quell uses this access <strong>only</strong> to sort and manage notifications on your behalf:</p>
+    <ul>
+      <li>silencing promotional and marketing notifications by moving them into a single, low-priority group so they stop interrupting you;</li>
+      <li>letting personal messages come through normally;</li>
+      <li>detecting time-sensitive notifications — such as deliveries, banking/security alerts, and emergencies — so they are not silenced by mistake.</li>
+    </ul>
+    <p>This reading and classification is performed on the device and in the moment. Notification content is not sent anywhere, and it is not used for advertising, profiling, or any purpose other than the notification management described above.</p>
+
+    <h3>4. Local history and retention</h3>
+    <p>So you can review what Quell did, the app keeps a <strong>local history</strong> of its own actions and the notifications it handled. This history:</p>
+    <ul>
+      <li>is stored only in Quell's private storage <strong>on your device</strong>;</li>
+      <li>is kept for <strong>up to 30 days</strong> and then automatically deleted;</li>
+      <li>is <strong>excluded from cloud backup</strong>, so it is not copied to Google's backup service or synced off the device;</li>
+      <li>is never transmitted to us or to anyone else.</li>
+    </ul>
+
+    <h3>5. Permissions and why they are needed</h3>
+    <p><strong>Notification access (Notification Listener)</strong> — required for Quell to read incoming notifications so it can classify and manage them. This is the core of the app. Without it, Quell cannot function. Content read through this permission is processed locally only, as described above.</p>
+    <p><strong>Post notifications (<code>POST_NOTIFICATIONS</code>)</strong> — used so Quell can re-post the promotional notifications it has quieted into a single silent group, letting you glance at them on your own terms instead of being interrupted.</p>
+    <p>Quell does not request the internet permission, location, contacts, microphone, camera, or similar sensitive permissions.</p>
+
+    <h3>6. Your choices and control</h3>
+    <ul>
+      <li><strong>Revoke notification access at any time.</strong> Go to <em>Settings &rarr; Apps &rarr; Special app access &rarr; Notification access</em> (the exact path varies by device and Android version) and turn off Quell. Access stops immediately.</li>
+      <li><strong>Clear the local history.</strong> You can clear Quell's stored data at any time from <em>Settings &rarr; Apps &rarr; Quell &rarr; Storage</em>, or from within the app where available.</li>
+      <li><strong>Uninstall = delete everything.</strong> Because all of Quell's data lives only on your device, uninstalling the app permanently removes its local history and settings. There is nothing left on any server for us to delete, because we never received it.</li>
+    </ul>
+
+    <h3>7. Children</h3>
+    <p>Quell is a general-purpose utility and is not directed at children. Because Quell collects no personal data and transmits nothing off the device, it does not knowingly gather information from anyone, including children.</p>
+
+    <h3>8. Security</h3>
+    <p>Keeping all processing and storage on your device removes entire categories of risk: there is no central database of your notifications to breach, and nothing in transit to intercept. Data stored by Quell is held in the app's private, sandboxed storage provided by Android and is not accessible to other apps.</p>
+
+    <h3>9. Changes to this policy</h3>
+    <p>If we change this policy, we will update the effective date above and publish the revised version at this address. Material changes will be reflected in the app's store listing.</p>
+
+    <h3>10. Contact</h3>
+    <p>Questions about privacy or this policy: <strong>support@quellcalm.com</strong></p>
+
+    <a class="backtop" href="#top">&uarr; Back to top</a>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ================= PORTUGUÊS ================= -->
+  <section id="pt">
+    <h2>Política de Privacidade</h2>
+    <p class="meta">Aplicação: <strong>Quell</strong> (pacote <code>app.quell</code>) &middot; Android</p>
+    <p class="meta">Data de vigência: <strong>12 de julho de 2026</strong></p>
+
+    <div class="callout">
+      <p style="margin:0"><strong>Em resumo.</strong> A Quell funciona inteiramente no teu dispositivo. Não tem permissão de internet, não usa conta e não mostra publicidade. Nada do que aparece nas tuas notificações é recolhido, enviado, partilhado ou guardado fora do telemóvel. Quando desinstalas a Quell, tudo o que ela guardava desaparece.</p>
+    </div>
+
+    <h3>1. Quem é responsável</h3>
+    <p>A Quell é desenvolvida e publicada pelo projeto Quell ("Quell", "nós"). Podes contactar-nos através de <strong>support@quellcalm.com</strong> para qualquer questão sobre esta política ou sobre a tua privacidade.</p>
+
+    <h3>2. O nosso princípio de privacidade: 100% no dispositivo</h3>
+    <p>A Quell foi construída para que o conteúdo das tuas notificações nunca saia do dispositivo. Todo o processamento — ler uma notificação, decidir se é uma promoção, uma mensagem ou algo urgente, e agir em conformidade — acontece localmente, em tempo real, no teu telemóvel.</p>
+    <p>Para que isto seja verificável e não apenas uma promessa, <strong>a Quell não pede a permissão de internet</strong> no seu manifest Android. Uma app sem essa permissão fica tecnicamente impossibilitada de enviar dados para fora do dispositivo. Não existem:</p>
+    <ul>
+      <li>servidores nossos que recebam os teus dados,</li>
+      <li>SDKs de analítica, rastreio (trackers) ou publicidade,</li>
+      <li>contas de utilizador, início de sessão ou perfis,</li>
+      <li>terceiros que recebam, alojem ou processem a tua informação.</li>
+    </ul>
+
+    <h3>3. A que dados a Quell acede</h3>
+    <p>Para cumprir a sua função, a Quell lê as notificações publicadas por outras apps no teu dispositivo, através do <strong>Acesso a Notificações</strong> do Android (a API <code>NotificationListenerService</code>). Isto pode incluir o texto e os metadados de uma notificação — por exemplo, a app de origem, o título, o texto da mensagem e a categoria da notificação.</p>
+    <p>A Quell usa este acesso <strong>apenas</strong> para organizar e gerir notificações por ti:</p>
+    <ul>
+      <li>silenciar notificações promocionais e de marketing, movendo-as para um único grupo de baixa prioridade, para deixarem de te interromper;</li>
+      <li>deixar passar normalmente as mensagens pessoais;</li>
+      <li>detetar notificações urgentes — como entregas, alertas de banca/segurança e emergências — para que não sejam silenciadas por engano.</li>
+    </ul>
+    <p>Esta leitura e classificação é feita no dispositivo e no momento. O conteúdo das notificações não é enviado para lado nenhum e não é usado para publicidade, criação de perfis ou qualquer finalidade além da gestão de notificações descrita acima.</p>
+
+    <h3>4. Histórico local e retenção</h3>
+    <p>Para que possas rever o que a Quell fez, a app mantém um <strong>histórico local</strong> das suas próprias ações e das notificações que tratou. Este histórico:</p>
+    <ul>
+      <li>é guardado apenas no armazenamento privado da Quell, <strong>no teu dispositivo</strong>;</li>
+      <li>é mantido durante <strong>até 30 dias</strong> e depois apagado automaticamente;</li>
+      <li>está <strong>excluído da cópia de segurança na nuvem</strong>, pelo que não é copiado para o serviço de backup da Google nem sincronizado para fora do dispositivo;</li>
+      <li>nunca é transmitido para nós nem para ninguém.</li>
+    </ul>
+
+    <h3>5. Permissões e por que são necessárias</h3>
+    <p><strong>Acesso a notificações (Notification Listener)</strong> — necessário para a Quell ler as notificações recebidas, de modo a classificá-las e geri-las. É o núcleo da app. Sem esta permissão, a Quell não funciona. O conteúdo lido através desta permissão é processado exclusivamente no dispositivo, como descrito acima.</p>
+    <p><strong>Publicar notificações (<code>POST_NOTIFICATIONS</code>)</strong> — usada para a Quell voltar a apresentar as notificações promocionais que silenciou, reunidas num único grupo silencioso, para as consultares quando quiseres em vez de seres interrompido.</p>
+    <p>A Quell não pede a permissão de internet, localização, contactos, microfone, câmara nem permissões sensíveis semelhantes.</p>
+
+    <h3>6. As tuas opções e controlo</h3>
+    <ul>
+      <li><strong>Revogar o acesso a notificações a qualquer momento.</strong> Vai a <em>Definições &rarr; Apps &rarr; Acesso especial de apps &rarr; Acesso a notificações</em> (o caminho exato varia consoante o dispositivo e a versão do Android) e desliga a Quell. O acesso termina de imediato.</li>
+      <li><strong>Limpar o histórico local.</strong> Podes limpar os dados guardados pela Quell a qualquer momento em <em>Definições &rarr; Apps &rarr; Quell &rarr; Armazenamento</em>, ou dentro da própria app quando disponível.</li>
+      <li><strong>Desinstalar = apagar tudo.</strong> Como todos os dados da Quell existem apenas no teu dispositivo, desinstalar a app remove permanentemente o histórico local e as definições. Não fica nada em nenhum servidor para nós apagarmos, porque nunca o recebemos.</li>
+    </ul>
+
+    <h3>7. Crianças</h3>
+    <p>A Quell é um utilitário de uso geral e não se destina a crianças. Como a Quell não recolhe dados pessoais nem transmite nada para fora do dispositivo, não recolhe conscientemente informação de ninguém, incluindo crianças.</p>
+
+    <h3>8. Segurança</h3>
+    <p>Manter todo o processamento e armazenamento no teu dispositivo elimina categorias inteiras de risco: não existe uma base de dados central das tuas notificações que possa ser violada, nem dados em trânsito que possam ser intercetados. Os dados guardados pela Quell ficam no armazenamento privado e isolado (sandbox) fornecido pelo Android e não são acessíveis a outras apps.</p>
+
+    <h3>9. Alterações a esta política</h3>
+    <p>Se alterarmos esta política, atualizamos a data de vigência acima e publicamos a versão revista neste endereço. Alterações relevantes serão refletidas na ficha da app na loja.</p>
+
+    <h3>10. Contacto</h3>
+    <p>Questões sobre privacidade ou sobre esta política: <strong>support@quellcalm.com</strong></p>
+
+    <a class="backtop" href="#top">&uarr; Voltar ao topo</a>
+  </section>
+
+  <footer class="foot">
+    <p>Quell &middot; <code>app.quell</code> &middot; <strong>12 de julho de 2026</strong> &middot; <strong>support@quellcalm.com</strong></p>
+  </footer>
+
+</div>
+</body>
+</html>
