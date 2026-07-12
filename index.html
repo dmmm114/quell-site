@@ -330,6 +330,45 @@
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
+<!-- MODAL: pedir convite beta -->
+<div class="modal-back" id="beta-modal" role="dialog" aria-modal="true" aria-labelledby="bm-title" hidden>
+  <div class="modal" id="beta-modal-card">
+    <button class="x" id="bm-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="bm-form-wrap">
+      <span class="m-k" data-i18n="bm_k">// closed beta</span>
+      <h3 id="bm-title" data-i18n="bm_title">Request a beta invite</h3>
+      <p class="m-s" data-i18n="bm_sub">Drop your email and we send you the opt-in link the moment the beta opens.</p>
+      <form id="beta-form" novalidate>
+        <div class="field">
+          <label for="bm-name" data-i18n="bm_name">Name</label>
+          <input id="bm-name" name="name" type="text" autocomplete="name" placeholder="Ana Silva">
+        </div>
+        <div class="field">
+          <label for="bm-email" data-i18n="bm_email">Email *</label>
+          <input id="bm-email" name="email" type="email" required autocomplete="email" placeholder="ana@email.com">
+        </div>
+        <div class="field">
+          <label for="bm-msg" data-i18n="bm_msg">Message (optional)</label>
+          <textarea id="bm-msg" name="message" placeholder=""></textarea>
+        </div>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="submit" type="submit" id="bm-submit">
+          <span class="spin" aria-hidden="true"></span>
+          <span data-i18n="bm_send">Request invite</span>
+        </button>
+        <div class="m-msg" id="bm-msg-out" role="status"></div>
+      </form>
+      <p class="m-note" data-i18n="bm_note">Your email is only used to send you the invite. No spam, ever.</p>
+    </div>
+    <div class="m-done" id="bm-done" hidden>
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 data-i18n="bm_ok_h">Request received!</h3>
+      <p class="m-s" data-i18n="bm_ok_s">Thank you. You get the beta link by email as soon as it opens.</p>
+    </div>
+  </div>
+</div>
 
 <header id="hdr">
   <div class="wrap">
@@ -908,44 +947,5 @@ const tin=document.getElementById('t-in'); if(tin)tin.addEventListener('keydown'
 
 applyLang(lang);
 </script>
-<!-- MODAL: pedir convite beta -->
-<div class="modal-back" id="beta-modal" role="dialog" aria-modal="true" aria-labelledby="bm-title" hidden>
-  <div class="modal" id="beta-modal-card">
-    <button class="x" id="bm-close" aria-label="Close">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div id="bm-form-wrap">
-      <span class="m-k" data-i18n="bm_k">// closed beta</span>
-      <h3 id="bm-title" data-i18n="bm_title">Request a beta invite</h3>
-      <p class="m-s" data-i18n="bm_sub">Drop your email and we send you the opt-in link the moment the beta opens.</p>
-      <form id="beta-form" novalidate>
-        <div class="field">
-          <label for="bm-name" data-i18n="bm_name">Name</label>
-          <input id="bm-name" name="name" type="text" autocomplete="name" placeholder="Ana Silva">
-        </div>
-        <div class="field">
-          <label for="bm-email" data-i18n="bm_email">Email *</label>
-          <input id="bm-email" name="email" type="email" required autocomplete="email" placeholder="ana@email.com">
-        </div>
-        <div class="field">
-          <label for="bm-msg" data-i18n="bm_msg">Message (optional)</label>
-          <textarea id="bm-msg" name="message" placeholder=""></textarea>
-        </div>
-        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="submit" type="submit" id="bm-submit">
-          <span class="spin" aria-hidden="true"></span>
-          <span data-i18n="bm_send">Request invite</span>
-        </button>
-        <div class="m-msg" id="bm-msg-out" role="status"></div>
-      </form>
-      <p class="m-note" data-i18n="bm_note">Your email is only used to send you the invite. No spam, ever.</p>
-    </div>
-    <div class="m-done" id="bm-done" hidden>
-      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-      <h3 data-i18n="bm_ok_h">Request received!</h3>
-      <p class="m-s" data-i18n="bm_ok_s">Thank you. You get the beta link by email as soon as it opens.</p>
-    </div>
-  </div>
-</div>
 </body>
 </html>
